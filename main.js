@@ -35,6 +35,7 @@ function generatePlane() {
   }
 }
 
+const raycaster = new THREE.Raycaster();
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -80,19 +81,22 @@ const backLight = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(0, 0, -1);
 scene.add(backLight);
 
-function animate() {
-  requestAnimationFrame(animate);
-  renderer.render(scene, camera);
-  // planeMesh.rotation.x += 0.03;
-}
-
-animate();
 const mouse = {
   x: undefined,
   y: undefined,
 };
+
+function animate() {
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+  raycaster.setFromCamera(mouse, camera);
+  const intersects = raycaster.intersectObject(planeMesh);
+  console.log(intersects);
+}
+
+animate();
+
 addEventListener('mousemove', (event) => {
   mouse.x = (event.clientX / innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / innerHeight) * 2 + 1;
-  console.log(mouse);
 });
