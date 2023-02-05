@@ -55,7 +55,6 @@ camera.position.z = 5;
 
 const planeGeometry = new THREE.PlaneGeometry(10, 10, 10, 10);
 const planeMaterial = new THREE.MeshPhongMaterial({
-  // color: '#28098A',
   side: THREE.DoubleSide,
   flatShading: true,
   vertexColors: true,
@@ -76,7 +75,7 @@ for (let i = 0; i < array.length; i += 3) {
 
 const colors = [];
 for (let i = 0; i < planeMesh.geometry.attributes.position.count; i++) {
-  colors.push(1, 0, 1);
+  colors.push(0, 0.19, 0.4);
 }
 
 planeMesh.geometry.setAttribute(
@@ -107,18 +106,18 @@ function animate() {
     const { color } = intersects[0].object.geometry.attributes;
 
     // vertice 1
-    color.setX(intersects[0].face.a, 0);
-    color.setY(intersects[0].face.a, 1);
+    color.setX(intersects[0].face.a, 0.1);
+    color.setY(intersects[0].face.a, 0.5);
     color.setZ(intersects[0].face.a, 1);
 
     // vertice 2
-    color.setX(intersects[0].face.b, 0);
-    color.setY(intersects[0].face.b, 1);
+    color.setX(intersects[0].face.b, 0.1);
+    color.setY(intersects[0].face.b, 0.5);
     color.setZ(intersects[0].face.b, 1);
 
     // vertice 3
-    color.setX(intersects[0].face.c, 0);
-    color.setY(intersects[0].face.c, 1);
+    color.setX(intersects[0].face.c, 0.1);
+    color.setY(intersects[0].face.c, 0.5);
     color.setZ(intersects[0].face.c, 1);
 
     intersects[0].object.geometry.attributes.color.needsUpdate = true;
