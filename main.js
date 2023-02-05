@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import * as dat from 'dat.gui';
 
 const gui = new dat.GUI();
@@ -48,6 +49,7 @@ renderer.setSize(innerWidth, innerHeight);
 renderer.setPixelRatio(devicePixelRatio);
 document.body.appendChild(renderer.domElement);
 
+new OrbitControls(camera, renderer.domElement);
 camera.position.z = 5;
 
 const planeGeometry = new THREE.PlaneGeometry(10, 10, 10, 10);
