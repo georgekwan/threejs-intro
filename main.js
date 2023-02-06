@@ -7,14 +7,14 @@ console.log(gsap);
 const gui = new dat.GUI();
 const world = {
   plane: {
-    width: 20,
-    height: 16,
+    width: 25,
+    height: 20,
     widthSegments: 35,
     heightSegments: 32,
   },
 };
-gui.add(world.plane, 'width', 1, 20).onChange(generatePlane);
-gui.add(world.plane, 'height', 1, 20).onChange(generatePlane);
+gui.add(world.plane, 'width', 1, 50).onChange(generatePlane);
+gui.add(world.plane, 'height', 1, 50).onChange(generatePlane);
 gui.add(world.plane, 'widthSegments', 1, 50).onChange(generatePlane);
 gui.add(world.plane, 'heightSegments', 1, 50).onChange(generatePlane);
 
@@ -54,7 +54,6 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-
 const renderer = new THREE.WebGLRenderer();
 
 renderer.setSize(innerWidth, innerHeight);
@@ -100,7 +99,7 @@ planeMesh.geometry.setAttribute(
 );
 
 const light = new THREE.DirectionalLight(0xffffff, 1);
-light.position.set(0, 0, 1);
+light.position.set(0, -1, 1);
 scene.add(light);
 
 const backLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -118,7 +117,6 @@ function animate() {
   raycaster.setFromCamera(mouse, camera);
   const intersects = raycaster.intersectObject(planeMesh);
   if (intersects.length > 0) {
-    console.log(intersects[0].face);
     const { color } = intersects[0].object.geometry.attributes;
 
     // vertice 1
