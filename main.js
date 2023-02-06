@@ -64,7 +64,12 @@ document.body.appendChild(renderer.domElement);
 new OrbitControls(camera, renderer.domElement);
 camera.position.z = 5;
 
-const planeGeometry = new THREE.PlaneGeometry(20, 16, 35, 32);
+const planeGeometry = new THREE.PlaneGeometry(
+  world.plane.width,
+  world.plane.height,
+  world.plane.widthSegments,
+  world.plane.heightSegments
+);
 const planeMaterial = new THREE.MeshPhongMaterial({
   side: THREE.DoubleSide,
   flatShading: true,
