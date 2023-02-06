@@ -7,10 +7,10 @@ console.log(gsap);
 const gui = new dat.GUI();
 const world = {
   plane: {
-    width: 10,
-    height: 10,
-    widthSegments: 10,
-    heightSegments: 10,
+    width: 20,
+    height: 16,
+    widthSegments: 35,
+    heightSegments: 32,
   },
 };
 gui.add(world.plane, 'width', 1, 20).onChange(generatePlane);
@@ -35,6 +35,15 @@ function generatePlane() {
 
     array[i + 2] = z + Math.random();
   }
+  const colors = [];
+  for (let i = 0; i < planeMesh.geometry.attributes.position.count; i++) {
+    colors.push(0, 0.19, 0.4);
+  }
+
+  planeMesh.geometry.setAttribute(
+    'color',
+    new THREE.BufferAttribute(new Float32Array(colors), 3)
+  );
 }
 
 const raycaster = new THREE.Raycaster();
@@ -55,7 +64,7 @@ document.body.appendChild(renderer.domElement);
 new OrbitControls(camera, renderer.domElement);
 camera.position.z = 5;
 
-const planeGeometry = new THREE.PlaneGeometry(10, 10, 10, 10);
+const planeGeometry = new THREE.PlaneGeometry(20, 16, 35, 32);
 const planeMaterial = new THREE.MeshPhongMaterial({
   side: THREE.DoubleSide,
   flatShading: true,
