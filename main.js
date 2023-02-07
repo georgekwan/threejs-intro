@@ -13,6 +13,7 @@ const world = {
   },
 };
 gui.add(world.plane, 'width', 1, 500).onChange(generatePlane);
+
 gui.add(world.plane, 'height', 1, 500).onChange(generatePlane);
 gui.add(world.plane, 'widthSegments', 1, 100).onChange(generatePlane);
 gui.add(world.plane, 'heightSegments', 1, 100).onChange(generatePlane);
@@ -26,14 +27,27 @@ function generatePlane() {
     world.plane.heightSegments
   );
 
+  // vertice position randomization
   const { array } = planeMesh.geometry.attributes.position;
-  for (let i = 0; i < array.length; i += 3) {
-    const x = array[i];
-    const y = array[i + 1];
-    const z = array[i + 2];
+  const randomValues = [];
+  for (let i = 0; i < array.length; i++) {
+    if (i % 3 === 0) {
+      const x = array[i];
+      const y = array[i + 1];
+      const z = array[i + 2];
 
-    array[i + 2] = z + Math.random();
+      array[i] = x + (Math.random() - 0.5) * 3;
+      array[i + 1] = y + (Math.random() - 0.5) * 3;
+      array[i + 2] = z + (Math.random() - 0.5) * 3;
+    }
+
+    randomValues.push(Math.random() * Math.PI * 2);
   }
+
+  planeMesh.geometry.attributes.position.randomValues = randomValues;
+  planeMesh.geometry.attributes.position.originalPosition =
+    planeMesh.geometry.attributes.position.array;
+
   const colors = [];
   for (let i = 0; i < planeMesh.geometry.attributes.position.count; i++) {
     // colors.push(0, 0.19, 0.4);
@@ -78,33 +92,12 @@ const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
 scene.add(planeMesh);
 generatePlane();
 
-// vertice position randomization
-const { array } = planeMesh.geometry.attributes.position;
-const randomValues = [];
-for (let i = 0; i < array.length; i++) {
-  if (i % 3 === 0) {
-    const x = array[i];
-    const y = array[i + 1];
-    const z = array[i + 2];
-
-    array[i] = x + (Math.random() - 0.5) * 3;
-    array[i + 1] = y + (Math.random() - 0.5) * 3;
-    array[i + 2] = z + (Math.random() - 0.5) * 3;
-  }
-
-  randomValues.push(Math.random() * Math.PI * 2);
-}
-
-planeMesh.geometry.attributes.position.randomValues = randomValues;
-planeMesh.geometry.attributes.position.originalPosition =
-  planeMesh.geometry.attributes.position.array;
-
 const light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(0, -1, 1);
 scene.add(light);
 
 const backLight = new THREE.DirectionalLight(0xffffff, 1);
-light.position.set(0, 0, -1);
+backLight.position.set(0, 0, -1);
 scene.add(backLight);
 
 const mouse = {
@@ -158,15 +151,18 @@ function animate() {
       g: 0.19,
       b: 0.4,
     };
+
     const hoverColor = {
       r: 0.1,
       g: 0.5,
       b: 1,
     };
+
     gsap.to(hoverColor, {
       r: initialColor.r,
       g: initialColor.g,
       b: initialColor.b,
+      duration: 1,
       onUpdate: () => {
         // vertice 1
         color.setX(intersects[0].face.a, hoverColor.r);
