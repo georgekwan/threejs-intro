@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Vite App</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <style>
       body {
         margin: 0;
@@ -12,7 +17,19 @@
     </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div
+        class="absolute text-white text-center"
+        style="top: 50%; transform: translate(-50%, -50%); left: 50%"
+      >
+        <h1>George Kwan</h1>
+        <p>
+          EMBRACE OPPORTUNITIES, FOLLOW YOUR CURIOSITY, AND LIVE LIFE TO THE
+          FULLEST.
+        </p>
+        <button>View Work</button>
+      </div>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
