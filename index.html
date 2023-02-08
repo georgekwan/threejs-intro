@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Vite App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
       rel="stylesheet"
@@ -13,6 +19,14 @@
     <style>
       body {
         margin: 0;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .font-EB-Garamond {
+        font-family: 'EB Garamond', serif;
+      }
+      .font-Oswald {
+        font-family: 'Oswald', sans-serif;
       }
     </style>
   </head>
@@ -22,8 +36,10 @@
         class="absolute text-white text-center"
         style="top: 50%; transform: translate(-50%, -50%); left: 50%"
       >
-        <h1>George Kwan</h1>
-        <p>
+        <h1 class="font-EB-Garamond text-sm uppercase tracking-wide">
+          George Kwan
+        </h1>
+        <p class="font-Oswald text-4xl">
           EMBRACE OPPORTUNITIES, FOLLOW YOUR CURIOSITY, AND LIVE LIFE TO THE
           FULLEST.
         </p>
