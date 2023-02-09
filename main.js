@@ -100,8 +100,12 @@ const backLight = new THREE.DirectionalLight(0xffffff, 1);
 backLight.position.set(0, 0, -1);
 scene.add(backLight);
 
+const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+console.log(randomColor);
+
 const starGeometry = new THREE.BufferGeometry();
-const starMaterial = new THREE.PointsMaterial({ color: 0xffffff });
+const starMaterial = new THREE.PointsMaterial({ color: '#' + randomColor });
+// const starMaterial = new THREE.PointsMaterial({ color: 0xffffff });
 
 const starVerticies = [];
 for (let i = 0; i < 10000; i++) {
@@ -112,8 +116,16 @@ for (let i = 0; i < 10000; i++) {
 }
 console.log(starVerticies);
 
+starGeometry.setAttribute(
+  'position',
+  new THREE.Float32BufferAttribute(starVerticies, 3)
+);
+
 console.log(starGeometry);
 console.log(starMaterial);
+
+const stars = new THREE.Points(starGeometry, starMaterial);
+scene.add(stars);
 
 const mouse = {
   x: undefined,
