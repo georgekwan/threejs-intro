@@ -219,6 +219,7 @@ function animate() {
       },
     });
   }
+  stars.rotation.x += 0.0006;
 }
 
 animate();
