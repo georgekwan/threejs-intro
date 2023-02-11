@@ -217,3 +217,16 @@ addEventListener('mousemove', (event) => {
   mouse.x = (event.clientX / innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / innerHeight) * 2 + 1;
 });
+
+gsap.to('#georgekwan', {
+  opacity: 1,
+  duration: 2,
+});
+gsap.to('#aboutMe', {
+  opacity: 1,
+  duration: 2,
+});
+gsap.to('#viewWorkBtn', {
+  opacity: 1,
+  duration: 2,
+});
