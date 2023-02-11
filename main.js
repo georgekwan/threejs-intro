@@ -225,8 +225,10 @@ gsap.to('#georgekwan', {
 gsap.to('#aboutMe', {
   opacity: 1,
   duration: 2,
+  delay: 0.3,
 });
 gsap.to('#viewWorkBtn', {
   opacity: 1,
   duration: 2,
+  delay: 0.6,
 });
