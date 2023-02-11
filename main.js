@@ -220,15 +220,21 @@ addEventListener('mousemove', (event) => {
 
 gsap.to('#georgekwan', {
   opacity: 1,
-  duration: 2,
+  duration: 1.5,
+  y: 0,
+  ease: 'expo',
 });
 gsap.to('#aboutMe', {
   opacity: 1,
-  duration: 2,
+  duration: 1.5,
   delay: 0.3,
+  y: 0,
+  ease: 'expo',
 });
 gsap.to('#viewWorkBtn', {
   opacity: 1,
-  duration: 2,
+  duration: 1.5,
   delay: 0.6,
+  y: 0,
+  ease: 'expo',
 });
