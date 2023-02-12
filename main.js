@@ -248,11 +248,17 @@ document.querySelector('#viewWorkBtn').addEventListener('click', (e) => {
   gsap.to(camera.position, {
     z: 25,
     ease: 'power3.inOut',
-    duration: 1.5,
+    duration: 2,
   });
   gsap.to(camera.rotation, {
     x: 1.57,
     ease: 'power3.inOut',
+    duration: 2,
+  });
+  gsap.to(camera.position, {
+    y: 1000,
+    ease: 'expo.in',
     duration: 1.5,
+    delay: 2,
   });
 });
