@@ -260,6 +260,9 @@ document.querySelector('#viewWorkBtn').addEventListener('click', (e) => {
     ease: 'expo.in',
     duration: 1.5,
     delay: 2,
+    onComplete: () => {
+      window.location = 'https://github.com/georgekwan';
+    },
   });
 });
 
