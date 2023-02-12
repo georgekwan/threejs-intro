@@ -238,3 +238,10 @@ gsap.to('#viewWorkBtn', {
   y: 0,
   ease: 'expo',
 });
+
+document.querySelector('#viewWorkBtn').addEventListener('click', (e) => {
+  e.preventDefault();
+  gsap.to('#container', {
+    opacity: 0,
+  });
+});
