@@ -244,4 +244,10 @@ document.querySelector('#viewWorkBtn').addEventListener('click', (e) => {
   gsap.to('#container', {
     opacity: 0,
   });
+
+  gsap.to(camera.position, {
+    z: 25,
+    ease: 'power3.inOut',
+    duration: 1.5,
+  });
 });
