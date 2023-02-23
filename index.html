@@ -52,7 +52,7 @@
           class="font-Audiowide text-sm uppercase tracking-wide opacity-0"
           style="
             transform: translateY(30px);
-            animation: pulsate 0.11s ease-in-out infinite alternate;
+            animation: pulsate 1.5s ease-in-out infinite alternate;
             @keyframes pulsate {
               100% {
                 text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff,
@@ -75,7 +75,7 @@
           class="font-Play text-4xl opacity-0"
           style="
             transform: translateY(30px);
-            animation: pulsate 0.11s ease-in-out infinite alternate;
+            animation: pulsate 1.5s ease-in-out infinite alternate;
             @keyframes pulsate {
               100% {
                 text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff,
@@ -97,7 +97,23 @@
           id="viewWorkBtn"
           href="https://github.com/georgekwan"
           class="border px-4 py-2 rounded-lg text-sm font-Audiowide uppercase mt-8 hover:bg-white hover:text-gray-800 inline-block opacity-0"
-          style="transform: translateY(30px)"
+          style="
+            transform: translateY(30px);
+            animation: pulsate 1.5s ease-in-out infinite alternate;
+            @keyframes pulsate {
+              100% {
+                text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff,
+                  0 0 40px #fec47f, 0 0 80px #fec47f, 0 0 90px #fec47f,
+                  0 0 100px #fec47f, 0 0 150px #fec47f;
+              }
+
+              0% {
+                text-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 18px #fff,
+                  0 0 38px #fec47f, 0 0 73px #fec47f, 0 0 80px #fec47f,
+                  0 0 94px #fec47f, 0 0 140px #fec47f;
+              }
+            }
+          "
         >
           View Work
         </a>
