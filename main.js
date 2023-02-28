@@ -125,6 +125,25 @@ console.log(starMaterial);
 const stars = new THREE.Points(starGeometry, starMaterial);
 scene.add(stars);
 
+// Moon
+
+const moonTexture = new THREE.TextureLoader().load('moon.jpg');
+const normalTexture = new THREE.TextureLoader().load('normal.jpg');
+
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(35, 32, 32),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture,
+    normalMap: normalTexture,
+  })
+);
+
+scene.add(moon);
+
+moon.position.z = 200;
+moon.position.y = 800;
+moon.position.setX(350);
+
 const mouse = {
   x: undefined,
   y: undefined,
@@ -208,6 +227,7 @@ function animate() {
     });
   }
   stars.rotation.x += 0.0006;
+  moon.rotation.z += 0.002;
 }
 
 animate();
