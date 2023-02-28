@@ -140,9 +140,9 @@ const moon = new THREE.Mesh(
 
 scene.add(moon);
 
-moon.position.z = 200;
-moon.position.y = 800;
-moon.position.setX(350);
+moon.position.z = 100;
+moon.position.y = 550;
+moon.position.setX(100);
 
 const mouse = {
   x: undefined,
