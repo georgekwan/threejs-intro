@@ -106,10 +106,10 @@ const starMaterial = new THREE.PointsMaterial({ color: '#' + randomColor });
 // const starMaterial = new THREE.PointsMaterial({ color: 0xffffff });
 
 const starVerticies = [];
-for (let i = 0; i < 10000; i++) {
-  const x = (Math.random() - 0.5) * 2000;
-  const y = (Math.random() - 0.5) * 2000;
-  const z = (Math.random() - 0.5) * 2000;
+for (let i = 0; i < 25000; i++) {
+  const x = (Math.random() - 0.5) * 2500;
+  const y = (Math.random() - 0.5) * 2500;
+  const z = (Math.random() - 0.5) * 2500;
   starVerticies.push(x, y, z);
 }
 console.log(starVerticies);
