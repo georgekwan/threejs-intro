@@ -240,8 +240,10 @@ function animate() {
     });
   }
   stars.rotation.x += 0.0006;
-  moon.rotation.z += 0.002;
-  moon.rotation.y += 0.0001;
+  stars.rotation.z += 0.0005;
+  stars.rotation.y += 0.0005;
+  moon.rotation.z += 0.0005;
+  moon.rotation.x += 0.0006;
 }
 
 animate();
