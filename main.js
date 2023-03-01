@@ -127,8 +127,12 @@ scene.add(stars);
 
 // Moon
 
-const moonTexture = new THREE.TextureLoader().load('./assets/moon.jpg');
-const normalTexture = new THREE.TextureLoader().load('./assets/normal.jpg');
+const moonTexture = new THREE.TextureLoader().load(
+  'https://i.postimg.cc/ZYCjm73B/moon.jpg'
+);
+const normalTexture = new THREE.TextureLoader().load(
+  'https://i.postimg.cc/K8wx9snP/normal.jpg'
+);
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(35, 32, 32),
