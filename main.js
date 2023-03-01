@@ -98,11 +98,20 @@ const backLight = new THREE.DirectionalLight(0xffffff, 1);
 backLight.position.set(0, 0, -1);
 scene.add(backLight);
 
-const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-console.log(randomColor);
+const getRandomLightColor = () => {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 3; i++) {
+    const hex = letters[Math.floor(Math.random() * 16)];
+    color += hex + hex; // duplicate the same hex value to increase brightness
+  }
+  return color;
+};
+const randomLightColor = getRandomLightColor();
+console.log(randomLightColor);
 
 const starGeometry = new THREE.BufferGeometry();
-const starMaterial = new THREE.PointsMaterial({ color: '#' + randomColor });
+const starMaterial = new THREE.PointsMaterial({ color: randomLightColor });
 // const starMaterial = new THREE.PointsMaterial({ color: 0xffffff });
 
 const starVerticies = [];
