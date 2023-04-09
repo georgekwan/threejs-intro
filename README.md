@@ -4,7 +4,7 @@ This is a Three JS project that utilizes the Vite build tool and the following d
 
 ## Screenshot
 
-![App Screenshot](https://i.imgur.com/xGsO4Pz.gif)
+![App Screenshot](https://i.imgur.com/fPqqJSW.gif)
 
 ## To get started, follow these steps:
 
