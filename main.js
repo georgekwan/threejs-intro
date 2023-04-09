@@ -18,17 +18,10 @@ const world = {
 // gui.add(world.plane, 'heightSegments', 1, 100).onChange(generatePlane);
 
 function generatePlane() {
-  planeMesh.geometry.dispose();
-  planeMesh.geometry = new THREE.PlaneGeometry(
-    world.plane.width,
-    world.plane.height,
-    world.plane.widthSegments,
-    world.plane.heightSegments
-  );
-
-  // vertice position randomization
-  const { array } = planeMesh.geometry.attributes.position;
+  const positionAttribute = planeMesh.geometry.attributes.position;
+  const { array } = positionAttribute;
   const randomValues = [];
+
   for (let i = 0; i < array.length; i++) {
     if (i % 3 === 0) {
       const x = array[i];
@@ -43,12 +36,12 @@ function generatePlane() {
     randomValues.push(Math.random() * Math.PI * 2);
   }
 
-  planeMesh.geometry.attributes.position.randomValues = randomValues;
-  planeMesh.geometry.attributes.position.originalPosition =
-    planeMesh.geometry.attributes.position.array;
+  positionAttribute.randomValues = randomValues;
+  positionAttribute.originalPosition = array;
 
   const colors = [];
-  for (let i = 0; i < planeMesh.geometry.attributes.position.count; i++) {
+
+  for (let i = 0; i < positionAttribute.count; i++) {
     colors.push(0.16, 0.18, 0.45);
   }
 
