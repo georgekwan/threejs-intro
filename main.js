@@ -92,16 +92,14 @@ backLight.position.set(0, 0, -1);
 scene.add(backLight);
 
 const getRandomLightColor = () => {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
+  const min = 200;
+  const color = `rgb(${min + Math.floor(Math.random() * (255 - min))}, ${
+    min + Math.floor(Math.random() * (255 - min))
+  }, ${min + Math.floor(Math.random() * (255 - min))})`;
   return color;
 };
 
 const randomLightColor = getRandomLightColor();
-console.log(randomLightColor);
 
 const starGeometry = new THREE.BufferGeometry();
 const starMaterial = new THREE.PointsMaterial({ color: randomLightColor });
